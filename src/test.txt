@@ -1,0 +1,2 @@
+MPI_Aint lb;
+MPI_Type_get_extent(MPI_Long, &lb, &extent);
