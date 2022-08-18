@@ -2,6 +2,8 @@
 
 This readme has been adapted for this fork of TauDEM. See the original here: https://github.com/dtarb/TauDEM#readme
 
+This fork contains an edited `linklib.h` file. I needed to replace some deprecated MPI constructs to get TauDEM to compile. This fork also includes the tool `inunmap`.
+
 TauDEM (Terrain Analysis Using Digital Elevation Models) is a suite of Digital Elevation Model (DEM) tools for the extraction and analysis of hydrologic information from topography as represented by a DEM. TauDEM is developed by [David Tarboton](https://hydrology.usu.edu/dtarb/).
 
 For more information on the development of TauDEM please refer to the wiki https://github.com/dtarb/TauDEM/wiki.
