@@ -11,15 +11,16 @@ For the latest release and detailed documentation please refer to the website: h
 
 Dependencies
 ---
-Dependencies include GDAL, MPI and C++ 2011. GDAL 3.0.4 included in my conda environment satisfied this dependency for me (Mark).
+Dependencies include GDAL, MPI and C++ 2011. GDAL 3.0.4 included in my conda environment satisfied this dependency for me (Mark). This uses some scripts with additional commands to isntall MPICH and GCC.
 
 For Ubuntu 20.04:
 ---
 ```sh
 $ sudo apt install libmpich-dev openmpi-bin build-essential
+$ sudo chmod +x GCC.sh MPICH2.sh
+$ ./GCC.sh
+$ ./MPICH2.sh
 ```
-
-If the above directions don't work see `GCC.sh` and `MPICH2.sh` for commands that may satisfy dependencies.
 
 Building on Linux
 ---
