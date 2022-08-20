@@ -32,6 +32,19 @@ $ make
 ```
 The executables are written to the `bin` directory.
 
+Debugging
+---
+When trying to run some TauDEM executables I got this error:
+```sh
+./aread8: error while loading shared libraries: libgdal.so.31: cannot open shared object file: No such file or directory
+```
+
+Which were resolved with:
+```sh
+$ ln -s /usr/lib/libgdal.so /usr/lib/libgdal.so.31
+$ /sbin/ldconfig
+```
+
 Testing
 -------
 See the repository https://github.com/dtarb/TauDEM-Test-Data for test data and scripts that exercise every function.  These can also serve as examples for using some of the functions.
