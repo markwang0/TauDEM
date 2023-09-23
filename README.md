@@ -1,51 +1,28 @@
 # TauDEM
 
-This readme has been adapted for this fork of TauDEM. See the original here: https://github.com/dtarb/TauDEM#readme
+These are my personal notes for building TauDEM.
 
-This fork contains an edited `linklib.h` file. I needed to replace some deprecated MPI constructs to get TauDEM to compile. This fork also includes the tool `inunmap`.
-
-TauDEM (Terrain Analysis Using Digital Elevation Models) is a suite of Digital Elevation Model (DEM) tools for the extraction and analysis of hydrologic information from topography as represented by a DEM. TauDEM is developed by [David Tarboton](https://hydrology.usu.edu/dtarb/).
-
-For more information on the development of TauDEM please refer to the wiki https://github.com/dtarb/TauDEM/wiki.
-For the latest release and detailed documentation please refer to the website: http://hydrology.usu.edu/taudem.
+See TauDEM's official websites for more info:
+ - Releases and documentation: http://hydrology.usu.edu/taudem
+ - Wiki: https://github.com/dtarb/TauDEM/wiki
 
 Dependencies
 ---
-Dependencies include GDAL, MPI and C++ 2011. GDAL 3.0.4 included in my conda environment satisfied this dependency for me (Mark). This uses some scripts with additional commands to isntall MPICH and GCC.
+Up-to-date installations of cmake, GDAL, NetCDF, MPI, and a C++ compiler.
 
-For Ubuntu 20.04:
----
+Building on Linux and Mac:
 ```sh
-$ sudo apt install libmpich-dev openmpi-bin build-essential
-$ sudo chmod +x GCC.sh MPICH2.sh
-$ ./GCC.sh
-$ ./MPICH2.sh
+$ cd TauDEM/src && mkdir build && cd build
+$ cmake ..
+$ make -j$(nproc)
 ```
+The executables are written to `TauDEM/src/build`.
 
-Building on Linux
----
+I found it convenient on Mac to use a conda environment to build and run TauDEM:
 ```sh
-$ cd TauDEM
-$ mkdir bin
-$ cd src
-$ make
+$ conda create -c conda-forge -n taudem-env gdal cxx-compiler
+$ conda activate taudem-env
+$ cd TauDEM/src && mkdir build && cd build
+$ cmake ..
+$ make -j$(nproc)
 ```
-The executables are written to the `bin` directory.
-
-Debugging
----
-When trying to run some TauDEM executables I got this error:
-```sh
-./aread8: error while loading shared libraries: libgdal.so.31: cannot open shared object file: No such file or directory
-```
-
-Which were resolved with:
-```sh
-$ ln -s /usr/lib/libgdal.so /usr/lib/libgdal.so.31
-$ /sbin/ldconfig
-```
-
-Testing
--------
-See the repository https://github.com/dtarb/TauDEM-Test-Data for test data and scripts that exercise every function.  These can also serve as examples for using some of the functions.
-
