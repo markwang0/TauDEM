@@ -20,7 +20,7 @@ The executables are written to `TauDEM/src/build`.
 
 I found it convenient on Mac to use a conda environment to build and run TauDEM:
 ```sh
-$ conda create -c conda-forge -n taudem-env gdal cxx-compiler
+$ conda create -c conda-forge -n taudem-env gdal cxx-compiler netcdf4 openmpi # or mpich
 $ conda activate taudem-env
 $ cd TauDEM/src && mkdir build && cd build
 $ cmake ..
